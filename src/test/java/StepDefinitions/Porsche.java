@@ -50,7 +50,7 @@ public class Porsche {
 			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		}
 
-		@When("the user clicks on Scaheffler company logo")
+		@When("the user clicks on Porsche company logo")
 		public void user_on_landing_page() {
 
 			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(8));
