@@ -98,7 +98,7 @@ Thread.sleep(3000);
 		driver.findElement(BtnCautaPosturi).click();
 	}
 
-	@Then("user can compare the results with peviitor")
+	@Then("user can assert same results as peviitor")
 	public void user_compares_results() {
 		System.out.println("code");
 //String bodyText = findElement(By.xpath("html/body")).getText();

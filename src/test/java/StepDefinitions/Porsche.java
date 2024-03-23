@@ -30,8 +30,8 @@ public class Porsche {
 	public static By veziPostul = By.xpath("//*[@id=\"root\"]/section/div[1]/section[2]/section[1]/div[2]/a");
 
 	
-		@Given("Browser is then opened")
-		public void browser_is_then_opened() {
+		@Given("Browser is opened")
+		public void browser_is_then_opened2() {
 
 			 options.addArguments("--remote-allow-origins=*)");
 		        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/src/test/resources/chromedriver.exe");
@@ -42,8 +42,8 @@ public class Porsche {
 			// driver.manage().windows().maximize();
 		}
 
-		@And("the user is on the landing page")
-		public void user_is_on_login_page() {
+		@And("the user is on the landing  page")
+		public void user_is_on_login_page2() {
 
 			driver.navigate().to("https://firme.peviitor.ro/");
 			// driver.get("https://firme.peviitor.ro/");
@@ -51,7 +51,7 @@ public class Porsche {
 		}
 
 		@When("the user clicks on Porsche company logo")
-		public void user_on_landing_page() {
+		public void user_on_landing_page2() {
 
 			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(8));
 			wait.until(ExpectedConditions.elementToBeClickable(schaefflerLogo));
@@ -59,8 +59,8 @@ public class Porsche {
 
 		}
 
-		@Then("Then the user checks first open position")
-		public void the_user_checks_number_of_open_positions() {
+		@Then("User is able to check opened positions")
+		public void the_user_checks_number_of_open_positions2() {
 
 	//get attribute text name of first job on peviitor
 //			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(8));

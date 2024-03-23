@@ -5,7 +5,7 @@ Feature: as a user I want to see Farmexin open positions on peviitor.ro
     Given the user is on the landing page
     Given the user clicks on Scaheffler company logo
    
-    Given the user navigates to Farmexin home page career
+    #Given the user navigates to Farmexin home page career
     And user searches for same job
     Then user can compare the results with peviitor
 

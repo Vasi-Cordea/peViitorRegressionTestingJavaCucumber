@@ -7,4 +7,4 @@ Feature: as a user I want to see Schaeffler open positions on peviitor.ro
 
     Given the user navigates to Schaeffler home page career
     And user searches for same job
-    Then user can compare the results with peviitor
+    Then user can assert same results as peviitor

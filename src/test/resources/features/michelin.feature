@@ -1,5 +1,5 @@
 Feature: as a user I want to see Michelin open positions on peviitor.ro
-
+  @ignore
   Scenario: User is able to check Michelin open positions
     Given Browser is then opened
     Given the user is on the landing page

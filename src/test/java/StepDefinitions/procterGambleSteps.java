@@ -30,7 +30,7 @@ public class procterGambleSteps {
 	public static By veziPostul = By.xpath("//*[@id=\"root\"]/section/div[1]/section[2]/section[1]/div[2]/a");
 
 	
-	@Given("Browser is then opened")
+	@Given("Browser is displayed")
 	public void browser_is_then_opened() {
 
 		 options.addArguments("--remote-allow-origins=*)");
@@ -42,16 +42,16 @@ public class procterGambleSteps {
 		// driver.manage().windows().maximize();
 	}
 
-	@And("the user is on the landing page")
-	public void user_is_on_login_page() {
+	@And("the user is on the  landing page")
+	public void user_is_on_login_page1() {
 
 		driver.navigate().to("https://firme.peviitor.ro/");
 		// driver.get("https://firme.peviitor.ro/");
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 	}
 
-	@When("the user clicks on ProcterGamble company logo")
-	public void user_on_landing_page() {
+	@When("the user clicks on Procter Gamble company logo")
+	public void user_on_landing_page1() {
 
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(8));
 		wait.until(ExpectedConditions.elementToBeClickable(schaefflerLogo));
@@ -59,8 +59,8 @@ public class procterGambleSteps {
 
 	}
 
-	@Then("Then the user checks first open position")
-	public void the_user_checks_number_of_open_positions() {
+	@Then("Then user checks first open position")
+	public void the_user_checks_number_of_open_positions1() {
 
 //get attribute text name of first job on peviitor
 //		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(8));
