@@ -14,34 +14,39 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.SchaefflerPage;
+import pages.loginPage;
 
 import java.time.Duration;
 
+
+
 // steps definitions without Page Object Model, relates to LoginDemo.feature
 public class SchaefflerSteps {
-	public static String firstJob;
+	SchaefflerPage Schaeffler1;
+
+	WebDriver driver = null;
 
 
-	 ChromeOptions options = new ChromeOptions();
-	 public WebDriver driver = new ChromeDriver(options);
-	public static By schaefflerLogo = By.xpath("//img[@alt='Schaeffler']");
-
-	public static By firstJobViitorSchaeffer = By.xpath("//section[@class='serp']//section[1]//div[1]//h2[1]");
-	public static By searchCareers = By.xpath("//input[@class='keywordsearch-q columnized-search']");
-	public static By BtnCautaPosturi = By.xpath("//input[@value='Căutare posturi']");
-	public static By veziPostul = By.xpath("//*[@id=\"root\"]/section/div[1]/section[2]/section[1]/div[2]/a");
 
 	@Given("Browser is then opened")
 	public void browser_is_then_opened() {
 
-		 options.addArguments("--remote-allow-origins=*)");
-	        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/src/test/resources/chromedriver.exe");
+		System.out.println("=== I am inside SchaefflerSteps====");
+		System.out.println("inside step -browser in open");
+
+		// define ChromeDriver path
+		String projectPath = System.getProperty("user.dir");
+		System.out.println("Project path is:" + projectPath);
+
+		// setup chromedriver to be used from inside project folder
+		System.getProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/drivers/chromedriver.exe");
+
+		driver = new ChromeDriver();
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-
-		// driver.manage().windows().maximize();
-	}
+    }
 
 	@And("the user is on the landing page")
 	public void user_is_on_login_page() {
@@ -51,59 +56,39 @@ public class SchaefflerSteps {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 	}
 
-	@When("the user clicks on Scaheffler company logo")
+	@When("the user clicks on Schaeffler company logo")
 	public void user_on_landing_page() {
 
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(8));
-		wait.until(ExpectedConditions.elementToBeClickable(schaefflerLogo));
-		driver.findElement(schaefflerLogo).click();
+		// call constructor from loginPage
+		Schaeffler1= new SchaefflerPage(driver);
+
+		Schaeffler1.user_click_logo();
 
 	}
 
-	@Then("Then the user checks first open position")
-	public void the_user_checks_number_of_open_positions() {
 
-//get attribute text name of first job on peviitor
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(8));
-//		wait.until(ExpectedConditions.elementToBeClickable(firstJobViitorSchaeffer));
-		String firstJob = driver.findElement(firstJobViitorSchaeffer).getText();
+	@And ("user gets the text of first job listed")
+		public void the_user_checks_number_of_open_positions () {
 
-		System.out.println("Then the user checks first open position: " + firstJob);
+			Schaeffler1.getTextFirstJob();
 
+		}
+
+		@Given("the user navigates to Schaeffler home page career")
+		public void user_navigates_to_home_page () throws InterruptedException {
+
+			Schaeffler1.userOn_home_page();
+
+		}
+
+		@And("user searches for same job")
+		public void user_searches_for_same_job () throws InterruptedException {
+			Schaeffler1.user_searches_for_same_job();
+		}
+
+		@Then("user can assert same results on both pages")
+		public void user_compares_results() {
+			Schaeffler1.compares_results();
+		}
 	}
 
-	@Given("the user navigates to Schaeffler home page career")
-	public void user_navigates_to_home_page()throws InterruptedException {
-
-		driver.findElement(veziPostul).click();
-		Thread.sleep(3000);
-		driver.findElement(searchCareers).sendKeys(firstJob);
-		driver.findElement(BtnCautaPosturi).click();
-		// Javascript executor scroll page to bottom
-	//	((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
-
-	}
-
-	@And("user searches for same job")
-	public void user_searches_for_same_job() throws InterruptedException
-
-	{
-Thread.sleep(3000);
-// explicit wait - to wait for the Next button to be click-able
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(8));
-//		wait.until(ExpectedConditions.elementToBeClickable(BtnCautaPosturi));
-
-
-		driver.findElement(searchCareers).sendKeys(firstJob);
-		driver.findElement(BtnCautaPosturi).click();
-	}
-
-	@Then("user can assert same results as peviitor")
-	public void user_compares_results() {
-		System.out.println("code");
-//String bodyText = findElement(By.xpath("html/body")).getText();
-
-//Assert.assertTrue(bodyText.contains(firstJob));
-	}
-
-}
