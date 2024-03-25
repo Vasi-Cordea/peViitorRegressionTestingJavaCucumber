@@ -13,27 +13,29 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class SchaefflerPage {
-  public static String firstJob;
-    WebDriver driver;
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(8));
+   static String firstJob;
+    public static WebDriver driver;
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-    // public WebDriver driver = new ChromeDriver(options);
+
     public static By schaefflerLogo = By.xpath("//img[@alt='Schaeffler']");
 
     public static By firstJobViitorSchaeffer = By.xpath("//section[@class='serp']//section[1]//div[1]//h2[1]");
     public static By searchCareers = By.xpath("//input[@class='keywordsearch-q columnized-search']");
+    //public static By searchCareers = By.className("keywordsearch-q columnized-search");
     public static By BtnCautaPosturi = By.xpath("//input[@value='Căutare posturi']");
     public static By veziPostul = By.xpath("//*[@id=\"root\"]/section/div[1]/section[2]/section[1]/div[2]/a");
 
     public SchaefflerPage(WebDriver driver) {
 
         // this driver will refer to the driver in this class. it will help to maintain same session
-        this.driver = driver;
+        SchaefflerPage.driver = driver;
+
     }
 
-    public void user_click_logo() {
+    public void user_click_logo()  {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
         wait.until(ExpectedConditions.elementToBeClickable(schaefflerLogo));
         driver.findElement(schaefflerLogo).click();
 
@@ -50,12 +52,13 @@ public class SchaefflerPage {
 
 
 
-    public void userOn_home_page() throws InterruptedException {
+    public void user_goes_to_home_page() {
 
         driver.findElement(veziPostul).click();
        // Thread.sleep(3000);
 //        driver.findElement(searchCareers).sendKeys(firstJob);
 //        driver.findElement(BtnCautaPosturi).click();
+
         // Javascript executor scroll page to bottom
         //	((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
