@@ -11,7 +11,7 @@ import java.time.Duration;
 public class SchaefflerPage extends Hooks {
   public static String firstJob;
    // public static WebDriver driver;
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
 
 
     public static By schaefflerLogo = By.xpath("//img[@alt='Schaeffler']");
@@ -25,7 +25,7 @@ public class SchaefflerPage extends Hooks {
 
     public void user_click_logo()  {
 
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(schaefflerLogo));
         driver.findElement(schaefflerLogo).click();
 
@@ -33,7 +33,7 @@ public class SchaefflerPage extends Hooks {
 
     public void getTextFirstJob() {
         //get attribute text name of first job on peviitor
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(veziPostul));
         String firstJob = driver.findElement(firstJobViitorSchaeffer).getText();
 
@@ -57,7 +57,7 @@ public class SchaefflerPage extends Hooks {
     public void user_searches_for_same_job() throws InterruptedException {
         Thread.sleep(3000);
 // explicit wait - to wait for the Next button to be click-able
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.elementToBeClickable(BtnCautaPosturi));
 
 

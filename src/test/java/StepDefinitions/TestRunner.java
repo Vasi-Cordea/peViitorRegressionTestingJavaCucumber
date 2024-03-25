@@ -21,8 +21,8 @@ plugin= {"pretty",
 		"html:target/Cucumber/HtmlReports",
 		"summary"}
 
-,features="src/test/resources/features/LoginDemo.feature"
-,glue = {"src/test/java/StepDefinitions"}
+,features="src/test/resources/features"
+,glue = {"StepDefinitions"}
 
 ,monochrome = true
 ,dryRun=false
