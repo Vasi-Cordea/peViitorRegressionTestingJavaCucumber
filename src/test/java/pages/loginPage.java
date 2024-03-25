@@ -15,9 +15,8 @@ public class loginPage {
 	 public static By txt_password = By.id("password");
 	 public static By btn_submit = By.id("submit");
 	 public static By btn_logOut = By.xpath("//*[contains(text(), 'Log out')]");
-	
-	
-	
+
+
 
 	public loginPage(WebDriver driver) {
 

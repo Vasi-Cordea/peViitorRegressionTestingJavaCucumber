@@ -3,14 +3,16 @@ import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
 public class Hooks {
     public static WebDriver driver;
-
-    @Before
+    public ChromeOptions options;
+    //@Before
     public void setup() {
+        this.driver=driver;
         //define ChromeDriver path
         String projectPath = System.getProperty("user.dir");
         System.out.println("Project path is:"+ projectPath);
@@ -26,9 +28,9 @@ public class Hooks {
         //driver.manage().windows().maximize();
     }
 
-    @After
+//    @After
     public void tearDown() {
-        driver.quit();
+        this.driver.close();
     }
 
 }

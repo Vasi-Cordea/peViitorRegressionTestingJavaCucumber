@@ -1,20 +1,16 @@
 package pages;
 
-import io.cucumber.java.en.And;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import StepDefinitions.Hooks;
 
 import java.time.Duration;
 
-public class SchaefflerPage {
-   static String firstJob;
-    public static WebDriver driver;
+public class SchaefflerPage extends Hooks {
+  public static String firstJob;
+   // public static WebDriver driver;
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
 
@@ -26,12 +22,6 @@ public class SchaefflerPage {
     public static By BtnCautaPosturi = By.xpath("//input[@value='Căutare posturi']");
     public static By veziPostul = By.xpath("//*[@id=\"root\"]/section/div[1]/section[2]/section[1]/div[2]/a");
 
-    public SchaefflerPage(WebDriver driver) {
-
-        // this driver will refer to the driver in this class. it will help to maintain same session
-        SchaefflerPage.driver = driver;
-
-    }
 
     public void user_click_logo()  {
 

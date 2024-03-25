@@ -21,26 +21,14 @@ plugin= {"pretty",
 		"html:target/Cucumber/HtmlReports",
 		"summary"}
 
-,features="src/test/resources/features/Schaeffler.feature"
-,glue = {"StepDefinitions"}
+,features="src/test/resources/features/LoginDemo.feature"
+,glue = {"src/test/java/StepDefinitions"}
 
 ,monochrome = true
 ,dryRun=false
 ,snippets = CAMELCASE
 //,tags = "@test"
 		)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
