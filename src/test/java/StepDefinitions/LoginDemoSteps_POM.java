@@ -10,6 +10,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.chrome.ChromeOptions;
 import pages.loginPage;
 
 // POM - Page Object Model class example, relates to LoginDemo.feature 
@@ -24,6 +25,8 @@ public class LoginDemoSteps_POM {
 		System.out.println("=== I am inside LoginDemoSteps_POM ====");
 		System.out.println("inside step -browser in open");
 
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless=new");
 		// define ChromeDriver path
 		String projectPath = System.getProperty("user.dir");
 		System.out.println("Project path is:" + projectPath);
