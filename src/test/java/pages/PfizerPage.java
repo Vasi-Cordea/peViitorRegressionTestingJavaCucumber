@@ -27,7 +27,7 @@ public class PfizerPage {
         // this driver will refer to the driver in this class. it will help to maintain same session
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(8));
-      ;
+
     }
 
 
@@ -62,7 +62,7 @@ public class PfizerPage {
         System.out.println("<comparison started>");
 
         Thread.sleep(4000);
-
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         System.out.println("Then java still remembers the Pfizer job name====> " + firstJobPF);
 
 

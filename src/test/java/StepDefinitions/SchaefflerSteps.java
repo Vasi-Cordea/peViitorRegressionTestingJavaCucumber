@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.PfizerPage;
 import pages.SchaefflerPage;
 import pages.loginPage;
 
@@ -27,7 +28,15 @@ public class SchaefflerSteps {
 
     SchaefflerPage Schaeffler1;
 
-    @Given("Browser is then opened")
+    public SchaefflerSteps(){
+
+
+        driver = new ChromeDriver();
+
+        Schaeffler1  = new SchaefflerPage (driver);
+    }
+
+    @Given("Browser is then opened for Schaeffler")
     public void browser_is_then_opened() {
 
         System.out.println("=== I am inside SchaefflerSteps====");
@@ -36,11 +45,8 @@ public class SchaefflerSteps {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless=new");
         // define ChromeDriver path
-        String projectPath = System.getProperty("user.dir");
-        System.out.println("Project path is:" + projectPath);
-
         // setup chromedriver to be used from inside project folder
-        System.getProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/drivers/chromedriver.exe");
+        System.getProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver.exe");
 
 
 
@@ -50,7 +56,7 @@ public class SchaefflerSteps {
 
     @And("the user is on the landing page")
     public void user_is_on_login_page() {
-
+        System.out.println("i am accessing fime.peviitor");
         driver.navigate().to("https://firme.peviitor.ro/");
         // driver.get("https://firme.peviitor.ro/");
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
@@ -82,7 +88,7 @@ public class SchaefflerSteps {
     }
 
     @And("user searches for same job")
-    public void user_searches_for_same_job() throws InterruptedException {
+    public void user_searches_for_same_job()  {
         Schaeffler1.user_searches_for_same_job();
     }
 
