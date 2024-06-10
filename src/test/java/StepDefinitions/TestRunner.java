@@ -21,7 +21,7 @@ plugin= {"pretty",
 		"html:target/Cucumber/HtmlReports",
 		"summary"}
 
-,features="src/test/resources/features/Schaeffler.feature"
+,features="src/test/resources/features"
 ,glue = {"StepDefinitions"}
 
 ,monochrome = true

@@ -61,7 +61,7 @@ public class PfizerPage {
     public String compares_results() throws InterruptedException {
         System.out.println("<comparison started>");
 
-        Thread.sleep(4000);
+        Thread.sleep(3500);
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         System.out.println("Then java still remembers the Pfizer job name====> " + firstJobPF);
 
