@@ -20,7 +20,6 @@ public class MichellinSteps {
         michellinPage = new michellinPage(driver);
     }
 
-
     @Given("Browser is opened for michellinUser")
     public void Browser_is_opened3() {
         michellinPage.Browser_is_opened();
